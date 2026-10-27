@@ -21,7 +21,7 @@ jobs:
         run: |
           # build.sh 第 6/7 步会挂载 DMG 并驱动 Finder 排版，CI 上会失败；
           # 但 App 在第 5 步就已产出，所以用 alarm 兜底防挂起，失败也继续。
-          perl -e 'alarm 1500; exec @ARGV' sh build.sh || true
+          perl -e 'alarm 1500; exec @ARGV' bash build.sh || true
           ls -la build || true
           find build -maxdepth 1 -name "*.app"
 
